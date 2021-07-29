@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const createForm = () => {
   const form = document.createElement('form');
@@ -20,6 +21,6 @@ const createForm = () => {
   div.append(input, button);
 
   return form;
-}
+};
 
 document.body.appendChild(createForm());
