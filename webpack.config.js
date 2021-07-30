@@ -15,7 +15,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'RSS aggregator',
+      template: 'template.html',
     }),
   ],
 };
