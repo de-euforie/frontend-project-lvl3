@@ -1,31 +1,36 @@
 import _ from 'lodash';
+import i18n from 'i18next';
+import { setLocale } from 'yup';
 import startView from './view.js';
-import receiveError from './validate.js';
+import validate from './validate.js';
+import en from './locales/en.js';
 
 export default () => {
   const state = {
     form: {
       state: '',
-      error: ' ',
+      error: null,
     },
     feeds: [],
     posts: [],
   };
 
+  const i18nInstance = i18n.createInstance();
+  i18nInstance.init({
+    lng: 'en',
+    debug: true,
+    resources: { en },
+  }).then(() => setLocale({
+    mixed: {
+      notOneOf: i18nInstance.t('validation.notOneOf'),
+      required: i18nInstance.t('validation.required'),
+    },
+    string: {
+      url: i18nInstance.t('validation.url'),
+    },
+  }));
+
   const watchedState = startView(state);
-
-  /* const validateHandler = () => {
-    state.form.isValid = validate(state.form.link, state.feeds);
-    const { isValid } = state.form;
-    watchedState.form.error = isValid ? ' ' : 'The link must be a valid URL';
-    watchedState.process = isValid ? 'submitting' : 'filling'
-  }
-
-  const errorHandler = () => {
-    const feedbackDiv = document.querySelector('.feedback')
-    feedbackDiv.textContent = state.form.error;
-  }
-  }); */
 
   const rssForm = document.querySelector('.rss-form');
 
@@ -34,10 +39,9 @@ export default () => {
     const formData = new FormData(e.target);
     const link = formData.get('link');
 
-    state.form.error = receiveError(link, state.feeds);
-
-    // console.log(link, isValid);
-    if (state.form.error === '') {
+    state.form.error = validate(link, state.feeds);
+    console.log(state.form.error);
+    if (!state.form.error) {
       watchedState.feeds.push(link);
       watchedState.form.state = 'success';
     } else {
