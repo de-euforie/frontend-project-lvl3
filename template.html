@@ -13,7 +13,7 @@
         <form class="rss-form">
             <div class="row">
                 <div class="col">
-                    <input type="text" placeholder="RSS link" autofocus="" required="" name="link" class="form-control">
+                    <input type="text" placeholder="RSS link" autofocus="" required="" name="url" class="form-control">
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="btn btn-primary">add</button>
@@ -22,6 +22,12 @@
         </form>
         <p class="text-muted mt-2">For example: https://ru.hexlet.io/lessons.rss</p>
         <p class="feedback mt-2"></p>
+    </section>
+    <section class='container p-5'>
+        <div class='row'>
+            <div class='col posts'></div>
+            <div class='col feeds'></div>
+        </div>
     </section>
 </body>
 </html>

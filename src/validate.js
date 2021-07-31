@@ -1,22 +1,15 @@
 import * as yup from 'yup';
 
-export default (link, feeds) => {
-  const schema = yup.string().url().notOneOf(feeds);
+export default (url, feeds) => {
+  const urls = feeds.map(({ url }) => url);
+  const schema = yup.string().url().notOneOf(urls);
 
   try {
-    schema.validateSync(link);
-    console.log('aaa', link);
+    schema.validateSync(url);
+    console.log('aaa', url);
     return null;
   } catch (e) {
-    console.log('ffff', link);
+    console.log('ffff', url);
     return e.message;
   }
-  /* if (!schema1.isValidSync(link)) {
-    return 'The link must be a valid URL';
-  }
-  const schema2 = yup.string().notOneOf(feeds);
-  if (!schema2.isValidSync(link)){
-    return 'RSS already exists';
-  }
-  return ''; */
 };

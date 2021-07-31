@@ -4,6 +4,7 @@ import { setLocale } from 'yup';
 import startView from './view.js';
 import validate from './validate.js';
 import en from './locales/en.js';
+import { handleSubmit } from './handlers.js';
 
 export default () => {
   const state = {
@@ -36,16 +37,6 @@ export default () => {
 
   rssForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const link = formData.get('link');
-
-    state.form.error = validate(link, state.feeds);
-    console.log(state.form.error);
-    if (!state.form.error) {
-      watchedState.feeds.push(link);
-      watchedState.form.state = 'success';
-    } else {
-      watchedState.form.state = 'failed';
-    }
+    handleSubmit(e, watchedState);
   });
 };
