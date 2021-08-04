@@ -6,10 +6,10 @@ export default (url, feeds) => {
 
   try {
     schema.validateSync(url);
-    console.log('aaa', url);
+    console.log('валидация прошла', url);
     return null;
   } catch (e) {
-    console.log('ffff', url);
+    console.log('валидация не прошла', url);
     return e.message;
   }
 };
