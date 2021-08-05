@@ -4,7 +4,7 @@ const en = {
       header: 'RSS aggregator',
       description: 'Start reading RSS today! It is easy, it is nicely.',
       placeholder: 'RSS link',
-      example: 'For example: https://ru.hexlet.io/lessons.rss',
+      example: 'For example: https://www.rivm.nl/nieuws/rss.xml',
       button: 'add',
     },
     errors: {
