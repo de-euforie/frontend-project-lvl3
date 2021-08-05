@@ -41,3 +41,9 @@ export const handleSubmit = (e, watchedState, i18nInstance) => {
     getRss(url, watchedState, i18nInstance);
   }
 };
+
+export const handleVisiting = (watchedState, url) => {
+  if (!_.has(watchedState.visitedPosts, url)) {
+    watchedState.visitedPosts.push(url);
+  }
+};

@@ -34,7 +34,7 @@ export const renderStateForm = (value, state) => {
   }
 };
 
-export const renderPosts = (state) => {
+export const renderPosts = (state, handler) => {
   console.log('начало renderPosts');
   postsDiv.textContent = '';
   const card = document.createElement('div');
@@ -53,7 +53,20 @@ export const renderPosts = (state) => {
     const a = document.createElement('a');
     a.setAttribute('href', url);
     a.setAttribute('target', '_blank');
+    console.log('будем ли делать жирным?', state.visitedPosts, url);
+    if (_.has(state.visitedPosts, url)) {
+      console.log('да');
+      a.classList.add('fw-normal');
+    } else {
+      console.log('нет');
+      a.classList.add('fw-bold');
+    }
     a.textContent = title;
+    a.addEventListener('click', () => {
+      handler(state, url);
+      a.classList.remove('fw-bold');
+      a.classList.add('fw-normal');
+    });
     li.append(a);
     ul.append(li);
   });

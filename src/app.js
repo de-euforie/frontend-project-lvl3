@@ -14,6 +14,7 @@ export default () => {
     },
     feeds: [],
     posts: [],
+    visitedPosts: [],
   };
 
   const i18nInstance = i18n.createInstance();
