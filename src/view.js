@@ -1,5 +1,6 @@
 import onChange from 'on-change';
 import validate from './validate.js';
+import parseRss from './parser.js';
 
 const rssForm = document.querySelector('.rss-form');
 const submitButton = document.querySelector('button');
@@ -85,7 +86,6 @@ const renderFeeds = (state) => {
   card.append(ul);
   feedsDiv.append(card);
   console.log('конец renderFeeds');
-  //renderPosts(state);
 }
 
 export default (state) => onChange(state, (path, value) => {
@@ -101,6 +101,7 @@ export default (state) => onChange(state, (path, value) => {
       renderPosts(state);
       break;
     default:
+      throw new Error('Unexpected state name');
       break;
   }
 });

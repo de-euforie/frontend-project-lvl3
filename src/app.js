@@ -23,11 +23,11 @@ export default () => {
     resources: { en },
   }).then(() => setLocale({
     mixed: {
-      notOneOf: i18nInstance.t('validation.notOneOf'),
-      required: i18nInstance.t('validation.required'),
+      notOneOf: i18nInstance.t('errors.notOneOf'),
+      required: i18nInstance.t('errors.required'),
     },
     string: {
-      url: i18nInstance.t('validation.url'),
+      url: i18nInstance.t('errors.url'),
     },
   }));
 
@@ -37,6 +37,6 @@ export default () => {
 
   rssForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    handleSubmit(e, watchedState);
+    handleSubmit(e, watchedState, i18nInstance);
   });
 };

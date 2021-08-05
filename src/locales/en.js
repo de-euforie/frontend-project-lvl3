@@ -7,10 +7,12 @@ const en = {
       example: 'For example: https://ru.hexlet.io/lessons.rss',
       button: 'add',
     },
-    validation: {
+    errors: {
       required: 'Field is required',
       url: 'Link must be a valid URL',
       notOneOf: 'RSS already exists',
+      netError: 'Network error',
+      invalidRss: 'Resource does not contain valid RSS',
     },
   },
 };

@@ -6,7 +6,6 @@ const parseRss = (rss, url) => {
   const parser = new DOMParser();
   const dom = parser.parseFromString(rss, 'application/xml');
 
-  try {
     const titleElement = dom.querySelector('title');
     const title = titleElement.textContent;
     const descriptionElement = dom.querySelector('description');
@@ -30,16 +29,14 @@ const parseRss = (rss, url) => {
       })
     })
     return { feed, posts };
-  } catch (e) {
-    console.log('ошибка parseRss',e.message);
-  }
-  
 };
 
-const getRss = (url, watchedState) => {
+const getRss = (url, watchedState, i18nInstance) => {
   const urlForRequest = `https://hexlet-allorigins.herokuapp.com/get?url=${encodeURIComponent(url)}`;
   axios.get(urlForRequest)
     .catch((e) => {
+      watchedState.form.error = i18nInstance.t('errors.netError');
+      watchedState.form.state = 'failed';
       console.log('ошибка при запросе', e.message);
     })
     .then((response) => {
@@ -49,10 +46,15 @@ const getRss = (url, watchedState) => {
       const oldPosts = watchedState.posts
       watchedState.posts = [...posts, ...oldPosts];
       watchedState.form.state = 'success';
+    })
+    .catch((e) => {
+      watchedState.form.error = i18nInstance.t('errors.invalidRss');
+      watchedState.form.state = 'failed';
+      console.log('невалидный rss', e.message);
     });
 };
 
-export const handleSubmit = (e, watchedState) => {
+export const handleSubmit = (e, watchedState, i18nInstance) => {
   const formData = new FormData(e.target);
   const url = formData.get('url');
 
@@ -61,6 +63,6 @@ export const handleSubmit = (e, watchedState) => {
   if (watchedState.form.error) {
     watchedState.form.state = 'failed';
   } else {
-    getRss(url, watchedState);
+    getRss(url, watchedState, i18nInstance);
   }
 };
