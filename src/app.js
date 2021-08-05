@@ -2,7 +2,7 @@ import _ from 'lodash';
 import i18n from 'i18next';
 import { setLocale } from 'yup';
 import startView from './view.js';
-import validate from './validate.js';
+import update from './updater.js';
 import en from './locales/en.js';
 import { handleSubmit } from './handlers.js';
 
@@ -39,4 +39,6 @@ export default () => {
     e.preventDefault();
     handleSubmit(e, watchedState, i18nInstance);
   });
+
+  update(state);
 };
