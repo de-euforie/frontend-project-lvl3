@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import addModal from './modal.js';
 
 const rssForm = document.querySelector('.rss-form');

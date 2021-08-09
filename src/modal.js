@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 export default (button, state) => {
   document.body.setAttribute('style', 'overflow: hidden; padding-right: 17px;');
   document.body.classList.add('.modal-open');

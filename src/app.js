@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import i18n from 'i18next';
 import { setLocale } from 'yup';
 import startView from './view.js';
@@ -41,5 +40,5 @@ export default () => {
     handleSubmit(e, watchedState, i18nInstance);
   });
 
-  // update(state);
+  update(state);
 };
