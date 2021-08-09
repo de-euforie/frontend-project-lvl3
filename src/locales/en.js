@@ -7,6 +7,7 @@ const en = {
       example: 'For example: https://www.rivm.nl/nieuws/rss.xml',
       submitButton: 'Add',
       previewButton: 'Preview',
+      fullArticle: 'Read full article',
     },
     errors: {
       required: 'Field is required',

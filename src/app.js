@@ -2,8 +2,10 @@ import i18n from 'i18next';
 import { setLocale } from 'yup';
 import startView from './view.js';
 import update from './updater.js';
-import en from './locales/en.js';
+import ru from './locales/ru.js';
 import { handleSubmit } from './handlers.js';
+
+// import en from './locales/en.js';
 
 export default () => {
   const state = {
@@ -18,9 +20,9 @@ export default () => {
 
   const i18nInstance = i18n.createInstance();
   i18nInstance.init({
-    lng: 'en',
+    lng: 'ru',
     debug: true,
-    resources: { en },
+    resources: { ru },
   }).then(() => setLocale({
     mixed: {
       notOneOf: i18nInstance.t('errors.notOneOf'),

@@ -45,7 +45,7 @@ export const renderPosts = (state, handler) => {
 
   const cardBody = document.createElement('div');
   cardBody.classList.add('card-body');
-  cardBody.innerHTML = '<h2 class="card-title h4">Posts</h2>';
+  cardBody.innerHTML = '<h2 class="card-title h4">Посты</h2>';
 
   const ul = document.createElement('ul');
   ul.classList.add('list-group', 'border-0', 'list-unstyled');
@@ -97,7 +97,7 @@ export const renderFeeds = (state) => {
 
   const cardBody = document.createElement('div');
   cardBody.classList.add('card-body');
-  cardBody.innerHTML = '<h2 class="card-title h4">Feeds</h2>';
+  cardBody.innerHTML = '<h2 class="card-title h4">Фиды</h2>';
 
   const ul = document.createElement('ul');
   ul.classList.add('list-group', 'border-0', 'list-unstyled');
