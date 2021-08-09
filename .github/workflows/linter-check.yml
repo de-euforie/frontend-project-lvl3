@@ -1,4 +1,4 @@
-name: linter and tests
+name: linter
 
 on: push
 
@@ -15,10 +15,3 @@ jobs:
         run: make install
       - name: run Linter
         run: make lint
-      - name: run test & check test coverage
-        uses: paambaati/codeclimate-action@v2.7.4
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: make test-coverage
-          debug: true
