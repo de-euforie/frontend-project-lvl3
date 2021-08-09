@@ -70,7 +70,7 @@ export const renderPosts = (state, handler) => {
     const button = document.createElement('button');
     button.classList.add('btn', 'btn-outline-primary');
     button.setAttribute('data-id', id);
-    button.textContent = 'Preview';
+    button.textContent = 'Просмотр';
     button.addEventListener('click', (e) => {
       e.preventDefault();
       console.log('тут вот стэйт', state);
