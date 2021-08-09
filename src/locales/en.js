@@ -5,7 +5,8 @@ const en = {
       description: 'Start reading RSS today! It is easy, it is nicely.',
       placeholder: 'RSS link',
       example: 'For example: https://www.rivm.nl/nieuws/rss.xml',
-      button: 'add',
+      submitButton: 'Add',
+      previewButton: 'Preview',
     },
     errors: {
       required: 'Field is required',

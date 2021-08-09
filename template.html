@@ -7,6 +7,21 @@
     <title>RSS aggregator</title>
 </head>
 <body>
+    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary full-article" href="#" role="button" target="_blank" rel="noopener noreferrer">Read full article</a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class='container mt-2 p-5 bg-dark text-light'>
         <h1>RSS aggregator</h1>
         <p class="lead">Start reading RSS today! It is easy, it is nicely.</p>

@@ -1,3 +1,5 @@
+import addModal from './modal.js';
+
 const rssForm = document.querySelector('.rss-form');
 const submitButton = document.querySelector('button');
 const feedbackDiv = document.querySelector('.feedback');
@@ -48,26 +50,35 @@ export const renderPosts = (state, handler) => {
   ul.classList.add('list-group', 'border-0', 'list-unstyled');
 
   state.posts.forEach((post) => {
-    const { title, url } = post;
+    const { title, url, id } = post;
     const li = document.createElement('li');
+
     const a = document.createElement('a');
     a.setAttribute('href', url);
     a.setAttribute('target', '_blank');
-    console.log('будем ли делать жирным?', state.visitedPosts, url);
-    if (_.has(state.visitedPosts, url)) {
-      console.log('да');
-      a.classList.add('fw-normal');
-    } else {
-      console.log('нет');
-      a.classList.add('fw-bold');
-    }
+    a.setAttribute('data-id', id);
+    const aClass = _.has(state.visitedPosts, url) ? 'fw-normal' : 'fw-bold';
+    a.classList.add(aClass);
     a.textContent = title;
     a.addEventListener('click', () => {
       handler(state, url);
       a.classList.remove('fw-bold');
       a.classList.add('fw-normal');
     });
+
+    const button = document.createElement('button');
+    button.classList.add('btn', 'btn-outline-primary');
+    button.setAttribute('data-id', id);
+    button.textContent = 'Preview';
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('тут вот стэйт', state);
+      addModal(e.target, state);
+    });
+
     li.append(a);
+    li.append(button);
+
     ul.append(li);
   });
 

@@ -41,5 +41,5 @@ export default () => {
     handleSubmit(e, watchedState, i18nInstance);
   });
 
-  update(state);
+  // update(state);
 };
