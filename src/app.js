@@ -4,7 +4,7 @@ import startView from './view.js';
 import update from './updater.js';
 import ru from './locales/ru.js';
 import { handleSubmit } from './handlers.js';
-import addText from './addtext.js'
+import addText from './addtext.js';
 
 // import en from './locales/en.js';
 
@@ -37,7 +37,7 @@ export default () => {
   addText(i18nInstance);
 
   const watchedState = startView(state, i18nInstance);
-  
+
   const rssForm = document.querySelector('.rss-form');
 
   rssForm.addEventListener('submit', (e) => {
