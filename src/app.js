@@ -21,7 +21,7 @@ export default () => {
 
   const i18nInstance = i18n.createInstance();
   i18nInstance.init({
-    lng: 'ru',
+    lng: 'en',
     debug: true,
     resources: { ru },
   }).then(() => setLocale({
@@ -45,5 +45,5 @@ export default () => {
     handleSubmit(e, watchedState, i18nInstance);
   });
 
-  //update(state);
+  // update(state);
 };
