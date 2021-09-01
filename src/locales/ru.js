@@ -3,11 +3,15 @@ const ru = {
     interface: {
       header: 'RSS агрегатор',
       description: 'Начните читать RSS сегодня! Это легко, это красиво.',
-      placeholder: 'Ссылка RSS',
+      placeholder: 'Ссылка RSS!',
       example: 'Пример: https://ru.hexlet.io/lessons.rss',
       submitButton: 'Добавить',
+      closeButton: 'Закрыть',
       previewButton: 'Просмотр',
       fullArticle: 'Читать полностью',
+      posts: 'Посты',
+      feeds: 'Фиды',
+      view: 'Просмотр',
     },
     errors: {
       required: 'Не должно быть пустым',

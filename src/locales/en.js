@@ -6,8 +6,12 @@ const en = {
       placeholder: 'RSS link',
       example: 'For example: https://www.rivm.nl/nieuws/rss.xml',
       submitButton: 'Add',
+      closeButton: 'Close',
       previewButton: 'Preview',
       fullArticle: 'Read full article',
+      posts: 'Posts',
+      feeds: 'Feeds',
+      view: 'View',
     },
     errors: {
       required: 'Field is required',

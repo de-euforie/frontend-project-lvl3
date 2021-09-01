@@ -2,7 +2,7 @@ import _ from 'lodash';
 import addModal from './modal.js';
 
 const rssForm = document.querySelector('.rss-form');
-const submitButton = document.querySelector('button');
+const submitButton = document.querySelector('#submitButton');
 const feedbackDiv = document.querySelector('.feedback');
 const input = document.querySelector('input');
 const feedsDiv = document.querySelector('.feeds');
@@ -37,7 +37,7 @@ export const renderStateForm = (value, state) => {
   }
 };
 
-export const renderPosts = (state, handler) => {
+export const renderPosts = (state, handler, i18nInstance) => {
   console.log('начало renderPosts');
   postsDiv.textContent = '';
   const card = document.createElement('div');
@@ -45,7 +45,7 @@ export const renderPosts = (state, handler) => {
 
   const cardBody = document.createElement('div');
   cardBody.classList.add('card-body');
-  cardBody.innerHTML = '<h2 class="card-title h4">Посты</h2>';
+  cardBody.innerHTML = `<h2 class="card-title h4">${i18nInstance.t('interface.posts')}</h2>`;
 
   const ul = document.createElement('ul');
   ul.classList.add('list-group', 'border-0', 'list-unstyled');
@@ -70,7 +70,7 @@ export const renderPosts = (state, handler) => {
     const button = document.createElement('button');
     button.classList.add('btn', 'btn-outline-primary');
     button.setAttribute('data-id', id);
-    button.textContent = 'Просмотр';
+    button.textContent = i18nInstance.t('interface.view');
     button.addEventListener('click', (e) => {
       e.preventDefault();
       console.log('тут вот стэйт', state);
@@ -89,7 +89,7 @@ export const renderPosts = (state, handler) => {
   console.log('конец renderPosts');
 };
 
-export const renderFeeds = (state) => {
+export const renderFeeds = (state, i18nInstance) => {
   console.log('начало renderFeeds');
   feedsDiv.textContent = '';
   const card = document.createElement('div');
@@ -97,7 +97,7 @@ export const renderFeeds = (state) => {
 
   const cardBody = document.createElement('div');
   cardBody.classList.add('card-body');
-  cardBody.innerHTML = '<h2 class="card-title h4">Фиды</h2>';
+  cardBody.innerHTML = `<h2 class="card-title h4">${i18nInstance.t('interface.feeds')}</h2>`;
 
   const ul = document.createElement('ul');
   ul.classList.add('list-group', 'border-0', 'list-unstyled');
