@@ -53,6 +53,7 @@ export const renderPosts = (state, handler, i18nInstance) => {
   state.posts.forEach((post) => {
     const { title, url, id } = post;
     const li = document.createElement('li');
+    li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'border-0');
 
     const a = document.createElement('a');
     a.setAttribute('href', url);
@@ -106,6 +107,7 @@ export const renderFeeds = (state, i18nInstance) => {
     const { title, description } = feed;
     const li = document.createElement('li');
     li.innerHTML = `<h3 class="h6 m-0">${title}</h3><p class="m-0 small text-black-50">${description}</p>`;
+    li.classList.add('list-group-item', 'mb-3', 'border-0');
     ul.append(li);
   });
 
